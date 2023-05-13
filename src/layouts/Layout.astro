@@ -18,10 +18,8 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="AgenceX - SEO Agency website landing page made with ASTROJS and TAILWINDCSS">
     <title>AgenceX - {title}</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="/css/fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/main.css">
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <Navbar />
@@ -154,73 +152,6 @@ const { title } = Astro.props;
   [data-nav-overlay][data-is-visible="true"] {
     visibility: visible;
     display: flex;
-  }
-
-  @keyframes scale {
-    from, to {
-      transform: scale(0);
-    }
-
-    50% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(180deg);
-    }
-  }
-
-  @keyframes background-pan {
-    from {
-      background-position: 0% center;
-    }
-
-    to {
-      background-position: -200% center;
-    }
-  }
-
-  h1 > span > .magic-star {
-    --size: clamp(20px, 1.5vw, 30px);
-
-    animation: scale 700ms ease forwards;
-    display: block;
-    height: var(--size);
-    left: var(--star-left);
-    position: absolute;
-    top: var(--star-top);
-    width: var(--size);
-  }
-
-  h1 > span > .magic-star > svg {
-    animation: rotate 1000ms linear infinite;
-    display: block;
-    opacity: 0.7;
-  }
-
-  h1 > span > .magic-star > svg > path {
-    fill: var(--violet);
-  }
-
-  h1 > .magic-text {
-    animation: background-pan 3s linear infinite;
-    background: linear-gradient(
-        to right,
-        var(--purple),
-        var(--violet),
-        var(--pink),
-        var(--purple)
-    );
-    background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    white-space: nowrap;
   }
 
 </style>

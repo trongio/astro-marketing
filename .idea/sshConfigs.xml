@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="130.61.210.232" id="a2955caf-a9b7-4fac-aaaa-80dfcc25bf1c" keyPath="C:\Users\gioka\OneDrive\Documents\12.ppk" port="22" nameFormat="DESCRIPTIVE" username="ubuntu" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

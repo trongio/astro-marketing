@@ -1,0 +1,12 @@
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-display: swap;
+  src: url(/fonts/Raleway-Italic-VariableFont_wght.ttf) format('tttf');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-display: swap;
+  src: url(/fonts/Raleway-VariableFont_wght.ttf) format('tttf');
+}
