@@ -32,6 +32,8 @@ module.exports = {
 				"heading-1": "rgb(var(--heading-1))",
 				"heading-2": "rgb(var(--heading-2))",
 				"heading-3": "rgb(var(--heading-3))",
+				'logo-green': '#002518',
+				'logo-gold': "linear-gradient(90deg, rgb(172, 132, 0), rgb(253, 238, 121)) rgb(2, 45, 61)",
 			},
 			screens:{
 				midmd:"880px"

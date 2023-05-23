@@ -73,3 +73,10 @@ h1 > .magic-text {
     -webkit-text-fill-color: transparent;
     white-space: nowrap;
 }
+
+nav ul li {
+    font-family: 'Bollent', serif;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+}

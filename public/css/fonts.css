@@ -10,3 +10,9 @@
   font-display: swap;
   src: url(/fonts/Raleway-VariableFont_wght.ttf) format('tttf');
 }
+
+@font-face {
+  font-family: 'Bollent';
+  font-display: swap;
+  src: url(/fonts/Bollent.otf) format('otf');
+}
