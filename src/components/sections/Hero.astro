@@ -4,20 +4,21 @@ import Container from "../shared/Container.astro";
 import MagicStar from "../shared/MagicStar.astro";
 ---
 
-<section class="h-fit panorama pb-2 panorama relative pt-32 lg:pt-36">
-    <Container className={"pb-36 justify-center text-center flex flex-col gap-10 lg:gap-12"}>
-        <h1 class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight font-bold text-heading-1">
-            <span class="magic-text relative">
+<section class="z-10 h-fit panorama pb-2 panorama relative pt-32 lg:pt-36">
+    <Container className={"pt-10 pb-36 justify-center text-center flex flex-col gap-10 lg:gap-12"}>
+        <h1 class=" text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight font-bold text-heading-1">
+            <span class=" light: letterize-text letterize-text relative">
               Build Your Business With Us
             </span>
         </h1>
         <div class="flex justify-center">
             <div class="w-fit magic">
-                <MagicStar className={"gold"}/>
-                <MagicStar className={"white"}/>
-                <MagicStar className={"green"}/>
-                <Button variant={"primary"} className={"text-lg relative text-white"}>
-                    <span class="flex  relative z-[5]">
+
+                <Button variant={"primary"} className={"relative text-lg relative text-white"}>
+                    <MagicStar className={"gold"}/>
+                    <MagicStar className={"white"}/>
+                    <MagicStar className={"green"}/>
+                    <span class="flex relative z-[5]">
                       Book Discovery Call
                     </span>
                 </Button>
@@ -111,6 +112,24 @@ import MagicStar from "../shared/MagicStar.astro";
         // Start the animation loop
         animate2();
 
+
+        const test = new Letterize({
+            targets: ".letterize-text"
+        });
+
+        var animation = anime.timeline({
+            targets: test.listAll,
+            delay: anime.stagger(50),
+            loop: true
+        });
+
+        // animation
+        //     .add({
+        //         translateY: -40
+        //     })
+        //     .add({
+        //         translateY: 0
+        //     });
 
     </script>
 

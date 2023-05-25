@@ -74,9 +74,23 @@ h1 > .magic-text {
     white-space: nowrap;
 }
 
-nav ul li {
+h1 > .letterize-text > span {
+    display: inline-block;
+}
+
+header nav ul li {
     font-family: 'Bollent', serif;
     letter-spacing: 2px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+
+.anim, .anim svg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.anim path {
+    stroke-width: 2;
 }
