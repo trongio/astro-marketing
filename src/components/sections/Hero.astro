@@ -1,60 +1,31 @@
 ---
 import Button from "../shared/Button.astro";
 import Container from "../shared/Container.astro";
-import Paragraph from "../shared/Paragraph.astro";
-import ByNumber from "./ByNumber.astro";
 import MagicStar from "../shared/MagicStar.astro";
 ---
 
-<section class="panorama pb-2 panorama relative pt-32 lg:pt-36">
-    <Container className={"flex flex-col lg:flex-row gap-10 lg:gap-12"}>
-        <div class="absolute w-full lg:w-1/2 inset-y-0 lg:right-0 ">
-            <span class="absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-green-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden"></span>
-            <span class="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"></span>
-        </div>
-        <span class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-green-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
-        <div class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 
-        lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
-            <h1 class=" text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight
-             font-bold text-heading-1">
-                <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600 magic-text relative">
-                   Build Your Business <br> With Us
-                </span>
-            </h1>
-            <Paragraph className="mt-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores repellat perspiciatis aspernatur quis
-                voluptatum porro incidunt,
-                libero sequi quos eos velit
-            </Paragraph>
-            <div class=" z-10 mt-10  w-full flex max-w-md mx-auto lg:mx-0">
-                <div class=" relative flex sm:flex-row flex-col gap-5">
-                    <MagicStar className={"gold"} />
-                    <MagicStar className={"white"} />
-                    <MagicStar className={"green"} />
-
-                    <Button variant={"primary"} className={"text-lg relative text-white"}>
-                            <span class="hidden sm:flex relative z-[5]">
-                                Book Discovery Call
-                            </span>
-                        <span class="flex sm:hidden relative z-[5]">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                          d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
-                                </svg>
-                            </span>
-                    </Button>
-                </div>
+<section class="h-fit panorama pb-2 panorama relative pt-32 lg:pt-36">
+    <Container className={"pb-36 justify-center text-center flex flex-col gap-10 lg:gap-12"}>
+        <h1 class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight font-bold text-heading-1">
+            <span class="magic-text relative">
+              Build Your Business With Us
+            </span>
+        </h1>
+        <div class="flex justify-center">
+            <div class="w-fit magic">
+                <MagicStar className={"gold"}/>
+                <MagicStar className={"white"}/>
+                <MagicStar className={"green"}/>
+                <Button variant={"primary"} className={"text-lg relative text-white"}>
+                    <span class="flex  relative z-[5]">
+                      Book Discovery Call
+                    </span>
+                </Button>
             </div>
         </div>
 
-        <div class=" relative flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
-            <img src="/images/image1.webp" alt="Hero image" width="2350" height="2359"
-                 class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96">
-        </div>
     </Container>
 
-    <ByNumber/>
     <script>
 		let index = 0,
 			interval = 1000;
@@ -71,53 +42,71 @@ import MagicStar from "../shared/MagicStar.astro";
 			star.style.animation = "";
 		}
 
-		for (const star of document.getElementsByClassName("magic-star")) {
-			setTimeout(() => {
-				animate(star);
+		let timeouts = [],
+			intervals = [];
 
-				setInterval(() => animate(star), 1000);
-			}, index++ * (interval / 3))
+		const magic = document.querySelector(".magic");
+
+		magic.onmouseenter = () => {
+			let index = 1;
+
+			for (const star of document.getElementsByClassName("magic-star")) {
+				timeouts.push(setTimeout(() => {
+					animate(star);
+
+					intervals.push(setInterval(() => animate(star), 1000));
+				}, index++ * 300));
+			}
+			;
 		}
 
-        let el = document.getElementsByClassName("panorama")[0];
-        let targetX = 0;
-        let targetY = 0;
-        let currentX = 0;
-        let currentY = 0;
-        const easingFactor = 0.07;
+		magic.onmouseleave = () => {
+			for (const t of timeouts) clearTimeout(t);
+			for (const i of intervals) clearInterval(i);
 
-        function animate2() {
-            // Calculate the distance between the current and target positions
-            let dx = targetX - currentX;
-            let dy = targetY - currentY;
+			timeouts = [];
+			intervals = [];
+		}
 
-            // Apply easing to the distance values
-            let vx = dx * easingFactor;
-            let vy = dy * easingFactor;
+		let el = document.getElementsByClassName("panorama")[0];
+		let targetX = 0;
+		let targetY = 0;
+		let currentX = 0;
+		let currentY = 0;
+		const easingFactor = 0.07;
 
-            // Update the current positions
-            currentX += vx;
-            currentY += vy;
+		function animate2() {
+			// Calculate the distance between the current and target positions
+			let dx = targetX - currentX;
+			let dy = targetY - currentY;
 
-            // Set the CSS custom properties with the current positions
-            el.style.setProperty("--x", `${currentX}px`);
-            el.style.setProperty("--y", `${currentY}px`);
+			// Apply easing to the distance values
+			let vx = Math.floor(dx * easingFactor);
+			let vy = Math.floor(dy * easingFactor);
 
-            // Request the next animation frame
-            requestAnimationFrame(animate2);
-        }
+			// Update the current positions
+			currentX += vx;
+			currentY += vy;
 
-        el.addEventListener('mousemove', (e) => {
-            const d = el.getBoundingClientRect();
-            let x = e.clientX - (d.left + Math.floor(d.width / 2));
-            let y = e.clientY - (d.top + Math.floor(d.height / 2));
-            // Invert values
-            x = x - x * 2;
-            y = y - y * 2;
+			// Set the CSS custom properties with the current positions
+			el.style.setProperty("--x", `${currentX}px`);
+			el.style.setProperty("--y", `${currentY}px`);
 
-            targetX = (x / 2 - 500);
-            targetY = (y / 2 - 200);
-        });
+			// Request the next animation frame
+			requestAnimationFrame(animate2);
+		}
+
+		el.addEventListener('mousemove', (e) => {
+			const d = el.getBoundingClientRect();
+			let x = e.clientX - (d.left + Math.floor(d.width / 2));
+			let y = e.clientY - (d.top + Math.floor(d.height / 2));
+			// Invert values
+			x = x - x * 2;
+			y = y - y * 2;
+
+			targetX = Math.floor(x / 2 - 500);
+			targetY = Math.floor(y / 2 - 200);
+		});
 
         // Start the animation loop
         animate2();
@@ -125,11 +114,11 @@ import MagicStar from "../shared/MagicStar.astro";
 
     </script>
 
-<style>
-    .panorama {
-        background: var(--bg-gradient), var(--bg-image) no-repeat var(--x) var(--y);
-        background-size: var(--bg-size);
-    }
-</style>
+    <style>
+        .panorama {
+            background: var(--bg-gradient), var(--bg-image) no-repeat var(--x) var(--y);
+            background-size: var(--bg-size);
+        }
+    </style>
 
 </section>
