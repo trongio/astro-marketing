@@ -85,7 +85,6 @@ header nav ul li {
     text-transform: uppercase;
 }
 
-
 .anim, .anim svg {
     position: relative;
     width: 100%;
@@ -93,4 +92,32 @@ header nav ul li {
 }
 .anim path {
     stroke-width: 2;
+}
+
+
+.animation-wrapper {
+    width: 50%;
+    padding-bottom: 50%;
+}
+
+.sphere-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 580px;
+    height: 580px;
+    margin: -290px 0 0 -290px;
+}
+
+.sphere path {
+    fill: url(#sphereGradient);
+    stroke-width: 1px;
+    stroke: rgba(80,80,80,.35);
+    backface-visibility: hidden;
+}
+
+@media (min-width: 500px) {
+    .sphere path {
+        stroke-width: .4px;
+    }
 }
