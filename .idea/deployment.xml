@@ -13,7 +13,7 @@
       <paths name="live2">
         <serverdata>
           <mappings>
-            <mapping deploy="/var/www/vortexize" local="$PROJECT_DIR$/dist" web="/" />
+            <mapping deploy="/var/www/vortexize.com" local="$PROJECT_DIR$/dist" web="/" />
           </mappings>
         </serverdata>
       </paths>
