@@ -4,6 +4,22 @@ import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
 
+const aboutUs = {
+    title: "We assist your company advance forward faster.",
+    content:"We assist companies in gaining a competitive advantage, expanding their client base, and quickly achieving their growth goals through in-depth market research, targeted advertising campaigns, efficient communication strategies, and cutting-edge digital marketing techniques."
+}
+const infos = [
+    {
+        title: "Our Mission",
+        description: "We aim to be a reliable and trusted partner, offering creative solutions to help our clients achieve their objectives and stand out in a crowded market.",
+        icon:"fa-solid fa-bolt"
+    },
+    {
+        title: "Our Vision",
+        description: "We envision a future where businesses of all sizes can confidently rely on our expertise and guidance to effectively navigate and thrive in the ever-evolving digital environment.",
+        icon:"fa-solid fa-eye"
+    }
+]
 ---
 
 <section class="z-10 relative" id="about-us">
@@ -52,27 +68,21 @@ import Title from "../shared/Title.astro";
         </div>
         <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
             <Title>
-                We help drive your business forward faster
+                {aboutUs.title}
             </Title>
             <Paragraph className="mt-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur? Excepturi quibusdam, quam ipsum hic, laudantium ducimus suscipit, culpa facere consequuntur repellat delectus.
+                {aboutUs.content}
             </Paragraph>
             <div class="pt-8 grid grid-cols-2 items-center gap-4 max-w-3xl md:max-w-[none]">
-                <Info description="Lorem ipsum dolor sit amet consectetur" title="Mission">
-                    <span slot="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                        </svg>                              
-                    </span>
-                </Info>
-                <Info description="Lorem ipsum dolor sit amet consectetur" title="Vision">
-                    <span slot="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                    </span>
-                </Info>
+                {
+                    infos.map((info, index) => (
+                        <Info description={info.description} title={info.title} key={index}>
+                            <span slot="icon">
+                                <i class={info.icon}></i>
+                            </span>
+                        </Info>
+                    ))
+                }
             </div>
         </div>
     </Container>
