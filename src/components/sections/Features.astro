@@ -3,6 +3,11 @@ import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
 
+const features = {
+        title: "We provide Crucial Elements for Digital Marketing",
+        description: "Our expertise in digital marketing encompasses various strategies, including search engine optimization (SEO), pay-per-click (PPC) advertising, social media marketing, and content marketing. We understand that each business is unique, so we tailor our approach to suit range of objectives and target audiences, ensuring greatest possible exposure and conversion rates.",
+        video: "/videos/baker.mp4"
+    }
 ---
 
 <section class="z-10" id="features">
@@ -10,30 +15,26 @@ import Title from "../shared/Title.astro";
         
         <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
             <Title>
-                We provide Important Features for Digital Marketing
+                {features.title}
             </Title>
             <Paragraph className="mt-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                <br> 
-                Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur?
+                {features.description}
             </Paragraph>
-            <Paragraph className="mt-2">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur?
-            </Paragraph>
-            <ul class="mt-8 space-y-4 text-heading-3 font-medium">
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Web site Analysis
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Free optimazation.
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Content Optimization.
-                </li>
-            </ul>
+
+            <!--<ul class="mt-8 space-y-4 text-heading-3 font-medium">-->
+            <!--    <li>-->
+            <!--        <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Web site Analysis-->
+            <!--    </li>-->
+            <!--    <li>-->
+            <!--        <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Free optimazation.-->
+            <!--    </li>-->
+            <!--    <li>-->
+            <!--        <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit.-->
+            <!--    </li>-->
+            <!--    <li>-->
+            <!--        <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Content Optimization.-->
+            <!--    </li>-->
+            <!--</ul>-->
         </div>
 
         <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
@@ -43,7 +44,7 @@ import Title from "../shared/Title.astro";
                 
                 <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
                 <div class="video-wrapper">
-                    <video src="/videos/baker.mp4" style="background-color: white; position: relative;" class="z-10 relarive w-full h-full" autoplay loop muted playsinline >
+                    <video src={features.video} style="background-color: white; position: relative;" class="z-10 relarive w-full h-full" autoplay loop muted playsinline >
                     </video>
                 </div>
             </div>
@@ -52,7 +53,7 @@ import Title from "../shared/Title.astro";
 
     <style>
         .video-wrapper video{
-            transform: scale(1.1) translate(15px, 49px);
+            transform: scale(1.1);
         }
         @media (max-width: 768px) {
             .video-wrapper video{

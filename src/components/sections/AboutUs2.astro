@@ -1,10 +1,12 @@
 ---
-import Info from "../cards/Info.astro";
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
-import GrowChart from "../shared/GrowChart.astro";
 
+const aboutUs = {
+    title: "We provide Vital Components for Web Development",
+    content: "We concentrate on providing an outstanding user experience through intuitive navigation, aesthetically pleasing layout, responsive design, and quick page loads. In order to ensure that our customers websites are not only aesthetically gorgeous, but also highly functional and optimized for search engines, our team of talented developers stays updated with the latest technologies and frameworks",
+}
 ---
 
 <section class="z-10 relative" id="about-us">
@@ -25,10 +27,10 @@ import GrowChart from "../shared/GrowChart.astro";
         </div>
         <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
             <Title>
-                We help drive your business forward faster
+                {aboutUs.title}
             </Title>
             <Paragraph className="mt-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur? Excepturi quibusdam, quam ipsum hic, laudantium ducimus suscipit, culpa facere consequuntur repellat delectus.
+                {aboutUs.content}
             </Paragraph>
             <!--<div class="flex mt-8">-->
             <!--    <GrowChart/>-->

@@ -15,7 +15,7 @@ import Paragraph from "../shared/Paragraph.astro";
                 Read reviews from our clients
             </Paragraph>
         </div>
-        <div id="default-carousel" class="relative w-full" data-carousel="static">
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
@@ -78,13 +78,13 @@ import Paragraph from "../shared/Paragraph.astro";
                         </Service>
                         <Service title="Amazon affiliate marketing"
                                  description="Sunt, ipsam, necessitatibus sint fugit officia laboriosam minima ab ullam at magni et. Quaerat, sint!">
-                    <span slot="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                             stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
-                        </svg>
-                    </span>
+                        <span slot="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                 stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
+                            </svg>
+                        </span>
                         </Service>
                     </div>
                 </div>
@@ -124,11 +124,6 @@ import Paragraph from "../shared/Paragraph.astro";
                     </div>
                 </div>
 
-            </div>
-            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
             </div>
         </div>
     </Container>

@@ -4,6 +4,12 @@ import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
 import Range from "../shared/Range.astro";
 
+const features = {
+    title:"Who we are and why should you want to choose us?",
+    content: "We are a leading outsourcing company committed to empowering other businesses. We offer great results, with a committed team of specialists, by uniting strategic thinking, cutting-edge technology and innovative design. Our customer-centric strategy, along with a strong emphasis on ethics and integrity, has made us a reliable partner for companies looking to strengthen their brand presence, engage their target audience, and achieve quantifiable success.",
+    video: "/videos/hockey.mp4"
+
+}
 ---
 
 <section class="hidden lg:flex z-10" id="features">
@@ -11,30 +17,11 @@ import Range from "../shared/Range.astro";
         
         <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
             <Title>
-                We provide Important Features for Digital Marketing
+                {features.title}
             </Title>
             <Paragraph className="mt-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                <br> 
-                Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur?
+                {features.content}
             </Paragraph>
-            <Paragraph className="mt-2">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, saepe aliquid autem alias vero distinctio dignissimos consequatur?
-            </Paragraph>
-            <ul class="mt-8 space-y-4 text-heading-3 font-medium">
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Web site Analysis
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Free optimazation.
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </li>
-                <li>
-                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Content Optimization.
-                </li>
-            </ul>
         </div>
 
         <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0  lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
@@ -43,12 +30,22 @@ import Range from "../shared/Range.astro";
                 <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
                 
                 <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
-                <div>
-                    <Range/>
+                <div class="video-wrapper">
+                    <video src={features.video} style="background-color: white; position: relative;" class="z-10 relarive w-full h-full" autoplay loop muted playsinline >
+                    </video>
                 </div>
             </div>
         </div>
     </Container>
 
-
+    <style>
+        .video-wrapper video{
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .video-wrapper video{
+                transform: scale(1) translate(0px, 0px);
+            }
+        }
+    </style>
 </section>
