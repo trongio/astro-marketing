@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="LIVE" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
       <paths name="LIVE">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/var/www/html" local="$PROJECT_DIR$/dist" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="live2">
         <serverdata>
           <mappings>
             <mapping deploy="/var/www/vortexize.com" local="$PROJECT_DIR$/dist" web="/" />

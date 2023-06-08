@@ -2,14 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="37445eca-0410-4854-9ec8-11d5d09e93fd" name="LIVE">
-        <fileTransfer accessType="SFTP" host="130.61.210.232" port="22" sshConfigId="a2955caf-a9b7-4fac-aaaa-80dfcc25bf1c" sshConfig="ubuntu@130.61.210.232:22 key" keyPair="true">
-          <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
-          </advancedOptions>
-        </fileTransfer>
-      </webServer>
-      <webServer id="5fb8409e-91ea-4393-99fc-f5f1d3f0a0ce" name="live2">
+      <webServer id="5fb8409e-91ea-4393-99fc-f5f1d3f0a0ce" name="LIVE">
         <fileTransfer accessType="SFTP" host="130.61.210.232" port="22" sshConfigId="a2955caf-a9b7-4fac-aaaa-80dfcc25bf1c" sshConfig="ubuntu@130.61.210.232:22 key" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
