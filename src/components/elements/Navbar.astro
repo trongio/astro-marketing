@@ -1,31 +1,31 @@
 ---
 import BtnLink from "../shared/BtnLink.astro";
 import Container from "../shared/Container.astro";
-import  Navitem from "../shared/Navitem.astro";
+import Navitem from "../shared/Navitem.astro";
 
 const navItems = [
-    {
-        href:"#",
-        text:"Home"
-    },
-    {
-        href:"#services",
-        text:"Services"
-    },
-    {
-        href:"#about-us",
-        text:"About us"
-    },
-    {
-        href:"#features",
-        text:"Features"
-    },
+	{
+		href: "#",
+		text: "Home"
+	},
+	{
+		href: "#services",
+		text: "Services"
+	},
+	{
+		href: "#about-us",
+		text: "About us"
+	},
+	{
+		href: "#features",
+		text: "Features"
+	},
 ]
 ---
 
-<header class=" inset-x-0 top-0 z-50 py-2 bg-black fixed">
+<header id="navbar" class=" inset-x-0 top-0 z-50 py-2 nav-bg fixed">
     <Container>
-        <nav class="w-full flex justify-between gap-6 relative">
+        <nav class="w-full flex justify-center gap-6 relative">
             <!-- logo -->
             <div class="min-w-max inline-flex relative">
                 <a href="/" class="relative flex items-center gap-3">
@@ -41,9 +41,10 @@ const navItems = [
             <div data-nav-overlay aria-hidden="true" class="fixed hidden inset-0 lg:!hidden bg-box-bg bg-opacity-50 backdrop-filter backdrop-blur-xl"></div>
             <div data-navbar class="flex h-0 overflow-hidden lg:!h-auto duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-end lg:items-center absolute lg:relative top-full lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0">
                 <ul class="border-t border-box-border lg:border-t-0 px-6 lg:px-0 pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 lg:justify-center lg:items-center">
-                    {navItems.map(item=>{
-                        return <Navitem {...item}/>
-                    })
+                    {
+                        navItems.map(item=>{
+                            return <Navitem {...item}/>
+                        })
                     }
                 </ul>
 
@@ -51,3 +52,28 @@ const navItems = [
         </nav>
     </Container>
 </header>
+
+
+<script>
+	window.addEventListener('scroll', function () {
+		let navbar = document.getElementById('navbar');
+
+		if (window.scrollY > 0) {
+			navbar.classList.add('scrolled');
+		} else {
+			navbar.classList.remove('scrolled');
+		}
+	});
+</script>
+
+
+<style>
+    #navbar {
+        transition: background-color 0.3s ease-in-out;
+        background: transparent;
+    }
+    #navbar.scrolled {
+        background-color: rgba(21, 20, 20, 0.77);
+        backdrop-filter: blur(10px);
+    }
+</style>
