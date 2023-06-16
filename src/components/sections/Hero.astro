@@ -69,59 +69,84 @@ import MagicStar from "../shared/MagicStar.astro";
 			intervals = [];
 		}
 
-		let el = document.getElementsByClassName("panorama")[0];
-		let targetX = 0;
-		let targetY = 0;
-		let currentX = 0;
-		let currentY = 0;
-		const easingFactor = 0.07;
+        let el = document.getElementsByClassName("panorama")[0];
+        const d = el.getBoundingClientRect();
+        let targetX = 0;
+        let targetY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        const easingFactor = 0.07;
 
-		function animate2() {
-			// Calculate the distance between the current and target positions
-			let dx = targetX - currentX;
-			let dy = targetY - currentY;
+        if(d.width <= 500) {
+            targetX = -636;
+            currentX = -636;
+            targetY = -100
+            currentY = -100
+        } else
+            if(d.width <= 768) {
+                targetX = -1150;
+                currentX = -1150;
+                targetY = -450
+                currentY = -450
+            }
 
-			// Apply easing to the distance values
-			let vx = Math.floor(dx * easingFactor);
-			let vy = Math.floor(dy * easingFactor);
+        function animate2() {
+            // Calculate the distance between the current and target positions
+            let dx = targetX - currentX;
+            let dy = targetY - currentY;
 
-			// Update the current positions
-			currentX += vx;
-			currentY += vy;
+            // Apply easing to the distance values
+            let vx = Math.floor(dx * easingFactor);
+            let vy = Math.floor(dy * easingFactor);
 
-			// Set the CSS custom properties with the current positions
-			el.style.setProperty("--x", `${currentX}px`);
-			el.style.setProperty("--y", `${currentY}px`);
+            // Update the current positions
+            currentX += vx;
+            currentY += vy;
 
-			// Request the next animation frame
-			requestAnimationFrame(animate2);
-		}
+            // Set the CSS custom properties with the current positions
+            el.style.setProperty("--x", `${currentX}px`);
+            el.style.setProperty("--y", `${currentY}px`);
 
-		el.addEventListener('mousemove', (e) => {
-			const d = el.getBoundingClientRect();
-			let x = e.clientX - (d.left + Math.floor(d.width / 2));
-			let y = e.clientY - (d.top + Math.floor(d.height / 2));
-			// Invert values
-			x = x - x * 2;
-			y = y - y * 2 -200;
+            // Request the next animation frame
+            requestAnimationFrame(animate2);
+        }
 
-			targetX = Math.floor(x / 2 - 500);
-			targetY = Math.floor(y / 2 - 200);
-		});
+        el.addEventListener('mousemove', (e) => {
+            let x = e.clientX - (d.left + Math.floor(d.width / 2));
+            let y = e.clientY - (d.top + Math.floor(d.height / 2));
+            // Invert values
+            x = x - x * 2;
+            y = y - y * 2 - 200;
 
-		// Start the animation loop
-		animate2();
+            // Limit target values on mobile devices
+            if (d.width <= 500) {
+                targetX = Math.max(Math.min(Math.floor(x / 2 - 600), 0), -2000);
+                targetY = Math.max(Math.min(Math.floor(y / 2), 0), -100);
+            } else
+            if(d.width <= 768) {
+                console.log(x, y)
+                targetX = Math.max(Math.min(Math.floor(x / 2 - 1100), 0), -1500);
+                targetY = Math.max(Math.min(Math.floor(y / 2 -300), 0), -450);
+            }
+            else {
+                targetX = Math.floor(x / 2 - 500);
+                targetY = Math.floor(y / 2 - 200);
+            }
+        });
+
+        // Start the animation loop
+        animate2();
 
 
-		const test = new Letterize({
-			targets: ".letterize-text"
-		});
-
-		var animation = anime.timeline({
-			targets: test.listAll,
-			delay: anime.stagger(50),
-			loop: true
-		});
+		// const test = new Letterize({
+		// 	targets: ".letterize-text"
+		// });
+        //
+		// var animation = anime.timeline({
+		// 	targets: test.listAll,
+		// 	delay: anime.stagger(50),
+		// 	loop: true
+		// });
 
 		// animation
 		//     .add({
@@ -134,8 +159,13 @@ import MagicStar from "../shared/MagicStar.astro";
     </script>
 
     <style>
+
+        h1 {
+            text-shadow: 0 0 8px black;
+        }
+
         .panorama {
-            background: var(--bg-gradient), var(--bg-image) no-repeat var(--x) var(--y);
+            background: var(--bg-gradient), no-repeat var(--bg-image) var(--x) var(--y);
             background-size: var(--bg-size);
         }
     </style>
